@@ -1,11 +1,17 @@
 {
+  "id": "/",
   "name": "Cronômetro Pro",
   "short_name": "Cronômetro",
   "description": "Cronômetro inspirado na Apple — rápido, elegante e moderno.",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#000000",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -15,6 +21,13 @@
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/screenshot1.png",
+      "sizes": "540x960",
       "type": "image/png"
     }
   ]
