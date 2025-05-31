@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cronômetro Pro</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="main-container">
+    <div class="cronometro-container dynamic-island" id="dynamicIsland">
+        <h1><i data-lucide="timer"></i> Cronômetro Pro</h1>
+        <div id="display" class="display-tempo">00:00:00:000</div>
+    </div>
+
+    <div class="controles">
+        <button id="btnIniciar"><i data-lucide="play"></i> Iniciar</button>
+        <button id="btnParar"><i data-lucide="pause"></i> Parar</button>
+        <button id="btnZerar"><i data-lucide="rotate-ccw"></i> Zerar</button>
+        <button id="salvarDB1"><i data-lucide="save"></i> Salvar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    lucide.createIcons();
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+            .then(() => console.log('Service Worker registrado!'));
+    }
+</script>
+</body>
+</html>

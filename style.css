@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --bg-color: #000000;
+    --card-bg: rgba(28,28,30,0.65);
+    --text-color: #fefefe;
+    --accent: #0a84ff;
+    --success: #32d74b;
+    --danger: #ff453a;
+    --warning: #ffd60a;
+    --shadow: rgba(0, 0, 0, 0.6);
+
+    --radius: 20px;
+    --transition: all 0.3s ease;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: #f2f2f7;
+        --card-bg: rgba(255, 255, 255, 0.75);
+        --text-color: #000000;
+        --accent: #007aff;
+        --success: #28a745;
+        --danger: #ff3b30;
+        --warning: #ffcc00;
+        --shadow: rgba(0, 0, 0, 0.1);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    width: 95%;
+    max-width: 500px;
+}
+
+.cronometro-container {
+    backdrop-filter: blur(20px) saturate(1.8);
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 32px var(--shadow);
+    animation: fadeIn 0.6s ease;
+    transition: var(--transition);
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-wrap: nowrap;
+}
+
+h1 svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 2;
+}
+
+.display-tempo {
+    margin-top: 1.5rem;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    color: var(--accent);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    letter-spacing: -0.05em;
+    text-shadow: 0 0 15px var(--accent);
+    width: 100%;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
+    transition: var(--transition);
+}
+
+.controles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.controles button {
+    flex: 1 1 45%;
+    min-width: 120px;
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.controles button svg {
+    width: 18px;
+    height: 18px;
+}
+
+#btnIniciar {
+    background: var(--success);
+    color: #000;
+}
+
+#btnParar {
+    background: var(--danger);
+    color: #000;
+}
+
+#btnZerar {
+    background: var(--accent);
+    color: #fff;
+}
+
+#salvarDB1 {
+    background: var(--warning);
+    color: #000;
+}
+
+.controles button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.controles button:active {
+    transform: scale(0.98);
+}
+
+.controles button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* 🌟 Dynamic Island Effects */
+.dynamic-island.expand {
+    transform: scale(1.05);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dynamic-island.shrink {
+    transform: scale(0.95);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 500px) {
+    .controles button {
+        flex: 1 1 100%;
+    }
+}
